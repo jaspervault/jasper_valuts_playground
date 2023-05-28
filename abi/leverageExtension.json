@@ -1,0 +1,565 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "contract IManagerCore",
+                "name": "_managerCore",
+                "type": "address"
+            },
+            {
+                "internalType": "contract ILeverageModule",
+                "name": "_leverageModule",
+                "type": "address"
+            },
+            {
+                "internalType": "contract ISignalSuscriptionModule",
+                "name": "_signalSuscriptionModule",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "ExtensionRemoved",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_manage",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_leverageModule",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_reason",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "_callData",
+                "type": "bytes"
+            }
+        ],
+        "name": "InvokeFail",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "LeverageExtensionInitialized",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_module",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "_integrationName",
+                "type": "string"
+            }
+        ],
+        "name": "ValidAdapterByModule",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_newBorrowAssets",
+                "type": "address[]"
+            }
+        ],
+        "name": "addBorrowAssets",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_newCollateralAssets",
+                "type": "address[]"
+            }
+        ],
+        "name": "addCollateralAssets",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_collateralAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_repayAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_redeemQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_minRepayQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_tradeAdapterName",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_tradeData",
+                "type": "bytes"
+            }
+        ],
+        "name": "delever",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_collateralAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_repayAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_redeemQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_minRepayQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_tradeAdapterName",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_tradeData",
+                "type": "bytes"
+            }
+        ],
+        "name": "deleverFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_collateralAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_repayAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_redeemQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_tradeAdapterName",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_tradeData",
+                "type": "bytes"
+            }
+        ],
+        "name": "deleverToZeroBorrowBalance",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_collateralAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_repayAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_redeemQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_tradeAdapterName",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_tradeData",
+                "type": "bytes"
+            }
+        ],
+        "name": "deleverToZeroBorrowBalanceFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "initializeExtension",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "_delegatedManager",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_collateralAssets",
+                "type": "address[]"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_borrowAssets",
+                "type": "address[]"
+            }
+        ],
+        "name": "initializeModule",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "_delegatedManager",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_collateralAssets",
+                "type": "address[]"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_borrowAssets",
+                "type": "address[]"
+            }
+        ],
+        "name": "initializeModuleAndExtension",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_borrowAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_collateralAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_borrowQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_minReceiveQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_tradeAdapterName",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_tradeData",
+                "type": "bytes"
+            }
+        ],
+        "name": "lever",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_borrowAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20",
+                "name": "_collateralAsset",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_borrowQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_minReceiveQuantityUnits",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_tradeAdapterName",
+                "type": "string"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_tradeData",
+                "type": "bytes"
+            }
+        ],
+        "name": "leverFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "leverageModule",
+        "outputs": [
+            {
+                "internalType": "contract ILeverageModule",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "managerCore",
+        "outputs": [
+            {
+                "internalType": "contract IManagerCore",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_borrowAssets",
+                "type": "address[]"
+            }
+        ],
+        "name": "removeBorrowAssets",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IERC20[]",
+                "name": "_collateralAssets",
+                "type": "address[]"
+            }
+        ],
+        "name": "removeCollateralAssets",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "removeExtension",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "setManagers",
+        "outputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "signalSuscriptionModule",
+        "outputs": [
+            {
+                "internalType": "contract ISignalSuscriptionModule",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

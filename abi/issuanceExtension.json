@@ -1,0 +1,310 @@
+[
+    {
+        "type": "constructor",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_managerCore"
+            },
+            {
+                "type": "address",
+                "name": "_issuanceModule"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ExtensionRemoved",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_delegatedManager",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "FeesDistributed",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": false
+            },
+            {
+                "type": "address",
+                "name": "_ownerFeeRecipient",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_methodologist",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "_ownerTake",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_methodologistTake",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "IssuanceExtensionInitialized",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_delegatedManager",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "ValidAdapterByModule",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_module"
+            },
+            {
+                "type": "string",
+                "name": "_integrationName"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "distributeFees",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "initializeExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_delegatedManager"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "initializeModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_delegatedManager"
+            },
+            {
+                "type": "uint256",
+                "name": "_maxManagerFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_managerIssueFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_managerRedeemFee"
+            },
+            {
+                "type": "address",
+                "name": "_feeRecipient"
+            },
+            {
+                "type": "address",
+                "name": "_managerIssuanceHook"
+            },
+            {
+                "type": "address[]",
+                "name": "_iROwers"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "initializeModuleAndExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_delegatedManager"
+            },
+            {
+                "type": "uint256",
+                "name": "_maxManagerFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_managerIssueFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_managerRedeemFee"
+            },
+            {
+                "type": "address",
+                "name": "_feeRecipient"
+            },
+            {
+                "type": "address",
+                "name": "_managerIssuanceHook"
+            },
+            {
+                "type": "address[]",
+                "name": "_iROwers"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "issuanceModule",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "managerCore",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "removeExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setManagers",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "updateFeeRecipient",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_newFeeRecipient"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateIssueFee",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_newFee"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateRedeemFee",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_newFee"
+            }
+        ],
+        "outputs": []
+    }
+]

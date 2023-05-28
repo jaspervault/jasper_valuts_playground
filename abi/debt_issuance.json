@@ -1,0 +1,521 @@
+[
+    {
+        "type": "constructor",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_controller"
+            },
+            {
+                "type": "address",
+                "name": "_signalSuscriptionModule"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "FeeRecipientUpdated",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_newFeeRecipient",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "IssueFeeUpdated",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "_newIssueFee",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "RedeemFeeUpdated",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "_newRedeemFee",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SetTokenIssued",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_issuer",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_to",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_hookContract",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_managerFee",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_protocolFee",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SetTokenRedeemed",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_redeemer",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_to",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_managerFee",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_protocolFee",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "IROwers",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "calculateTotalFees",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity"
+            },
+            {
+                "type": "bool",
+                "name": "_isIssue"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "totalQuantity"
+            },
+            {
+                "type": "uint256",
+                "name": "managerFee"
+            },
+            {
+                "type": "uint256",
+                "name": "protocolFee"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "controller",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getModuleIssuanceHooks",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getRequiredComponentIssuanceUnits",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "uint256[]"
+            },
+            {
+                "type": "uint256[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getRequiredComponentRedemptionUnits",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "uint256[]"
+            },
+            {
+                "type": "uint256[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "initialize",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_maxManagerFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_managerIssueFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_managerRedeemFee"
+            },
+            {
+                "type": "address",
+                "name": "_feeRecipient"
+            },
+            {
+                "type": "address",
+                "name": "_managerIssuanceHook"
+            },
+            {
+                "type": "address[]",
+                "name": "_iROwer"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "isModuleIssuanceHook",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_hook"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "issuanceSettings",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "maxManagerFee"
+            },
+            {
+                "type": "uint256",
+                "name": "managerIssueFee"
+            },
+            {
+                "type": "uint256",
+                "name": "managerRedeemFee"
+            },
+            {
+                "type": "address",
+                "name": "feeRecipient"
+            },
+            {
+                "type": "address",
+                "name": "managerIssuanceHook"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "issue",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity"
+            },
+            {
+                "type": "address",
+                "name": "_to"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "redeem",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_quantity"
+            },
+            {
+                "type": "address",
+                "name": "_to"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "registerToIssuanceModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "removeModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "signalSuscriptionModule",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "unregisterFromIssuanceModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateFeeRecipient",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_newFeeRecipient"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateIssueFee",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_newIssueFee"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateRedeemFee",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "uint256",
+                "name": "_newRedeemFee"
+            }
+        ],
+        "outputs": []
+    }
+]

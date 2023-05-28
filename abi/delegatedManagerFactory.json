@@ -1,0 +1,380 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "contract IManagerCore",
+                "name": "_managerCore",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IController",
+                "name": "_controller",
+                "type": "address"
+            },
+            {
+                "internalType": "contract ISetTokenCreator",
+                "name": "_setTokenFactory",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "contract DelegatedManager",
+                "name": "_manager",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_deployer",
+                "type": "address"
+            }
+        ],
+        "name": "DelegatedManagerCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "contract IDelegatedManager",
+                "name": "_manager",
+                "type": "address"
+            }
+        ],
+        "name": "DelegatedManagerInitialized",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "account2setToken",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "controller",
+        "outputs": [
+            {
+                "internalType": "contract IController",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_methodologist",
+                "type": "address"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_adapters",
+                "type": "address[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_operators",
+                "type": "address[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_assets",
+                "type": "address[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_extensions",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_delay",
+                "type": "uint256"
+            }
+        ],
+        "name": "createManager",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "vaultType",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "followFee",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "profitShareFee",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "components",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "int256[]",
+                        "name": "units",
+                        "type": "int256[]"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "owner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "methodologist",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "delay",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "modules",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adapters",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "operators",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "assets",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "extensions",
+                        "type": "address[]"
+                    }
+                ],
+                "internalType": "struct DelegatedManagerFactory.CreateInfo",
+                "name": "_info",
+                "type": "tuple"
+            }
+        ],
+        "name": "createSetAndManager",
+        "outputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_extensions",
+                "type": "address[]"
+            },
+            {
+                "internalType": "bytes[]",
+                "name": "_initializeBytecode",
+                "type": "bytes[]"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "initializeState",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "deployer",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "methodologist",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "manager",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "isPending",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "jasperVaultType",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "managerCore",
+        "outputs": [
+            {
+                "internalType": "contract IManagerCore",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "setToken2account",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "setTokenFactory",
+        "outputs": [
+            {
+                "internalType": "contract ISetTokenCreator",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

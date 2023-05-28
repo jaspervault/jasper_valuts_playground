@@ -1,0 +1,423 @@
+[
+    {
+        "type": "constructor",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_managerCore"
+            },
+            {
+                "type": "address",
+                "name": "_signalSuscriptionModule"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ExtensionRemoved",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_delegatedManager",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SetFee",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "_followFee",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "_profitShareFee",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SetSubscribeStatus",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "status",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SetWhiteList",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "user",
+                "indexed": false
+            },
+            {
+                "type": "bool",
+                "name": "status",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SignalSuscriptionExtensionInitialized",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "_delegatedManager",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "ValidAdapterByModule",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_module"
+            },
+            {
+                "type": "string",
+                "name": "_integrationName"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "allowSubscribe",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "editSubscribeFee",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_masterToken"
+            },
+            {
+                "type": "uint256",
+                "name": "_followFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_profitShareFee"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "exectueFollowEnd",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "getExectueFollow",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getFollowers",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "initializeExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_delegatedManager"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "initializeModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_delegatedManager"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "initializeModuleAndExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_delegatedManager"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "managerCore",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "removeExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setManagers",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "setWhiteListAndSubscribeStatus",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address[]",
+                "name": "_addList"
+            },
+            {
+                "type": "address[]",
+                "name": "_delList"
+            },
+            {
+                "type": "bool",
+                "name": "_status"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "signalSuscriptionModule",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "subscribe",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "target"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "unsubscribe",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "target"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "unsubscribeLine",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "warnLine",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "whiteList",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    }
+]

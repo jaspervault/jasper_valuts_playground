@@ -1,0 +1,859 @@
+[
+    {
+        "type": "constructor",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_jasperVault"
+            },
+            {
+                "type": "address",
+                "name": "_factory"
+            },
+            {
+                "type": "address",
+                "name": "_methodologist"
+            },
+            {
+                "type": "address[]",
+                "name": "_extensions"
+            },
+            {
+                "type": "address[]",
+                "name": "_operators"
+            },
+            {
+                "type": "address[]",
+                "name": "_allowedAssets"
+            },
+            {
+                "type": "address[]",
+                "name": "_adapters"
+            },
+            {
+                "type": "bool",
+                "name": "_useAssetAllowlist"
+            },
+            {
+                "type": "bool",
+                "name": "_useAdapterAllowlist"
+            },
+            {
+                "type": "uint256",
+                "name": "_delay"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "AllowedAdapterAdded",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_adapter",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "AllowedAdapterRemoved",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_adapter",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "AllowedAssetAdded",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_asset",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "AllowedAssetRemoved",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_asset",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ExtensionAdded",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_extension",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ExtensionInitialized",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_extension",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ExtensionRemoved",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_extension",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "MethodologistChanged",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_newMethodologist",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "MutualUpgradeRegistered",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "_upgradeHash",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "OperatorAdded",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_operator",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "OperatorRemoved",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_operator",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "OwnershipTransferred",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "previousOwner",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "newOwner",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "SetAdapter",
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_addList",
+                "indexed": false
+            },
+            {
+                "type": "address[]",
+                "name": "_deleteList",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "UseAdapterAllowlistUpdated",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_status",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "UseAssetAllowlistUpdated",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_status",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "adapters_timestamps",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "addExtensions",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_extensions"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "addModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_module"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "addOperators",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_operators"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "assets_timestamps",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "delay",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "extensionAllowlist",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint8"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "factory",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getAdapters",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getAllowedAssets",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getExtensions",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getOperators",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "initializeExtension",
+        "constant": false,
+        "payable": false,
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "interactManager",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_module"
+            },
+            {
+                "type": "bytes",
+                "name": "_data"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "isAllowedAdapter",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_adapter"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "isAllowedAsset",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_asset"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "isInitializedExtension",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_extension"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "isPendingExtension",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_extension"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "jasperVault",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "methodologist",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "mutualUpgrades",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "operatorAllowlist",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "owner",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "ownerFeeRecipient",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "removeExtensions",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_extensions"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "removeModule",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_module"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "removeOperators",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_operators"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "renounceOwnership",
+        "constant": false,
+        "payable": false,
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setAdapters",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_addList"
+            },
+            {
+                "type": "address[]",
+                "name": "_deleteList"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setAllowedAssets",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address[]",
+                "name": "_addAssets"
+            },
+            {
+                "type": "address[]",
+                "name": "_deleteAssets"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setBaseFeeAndToken",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_masterToken"
+            },
+            {
+                "type": "uint256",
+                "name": "_followFee"
+            },
+            {
+                "type": "uint256",
+                "name": "_profitShareFee"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setBaseProperty",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "string",
+                "name": "_name"
+            },
+            {
+                "type": "string",
+                "name": "_symbol"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setManager",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_newManager"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setMethodologist",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_newMethodologist"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setSubscribeStatus",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "_status"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "subscribeStatus",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "transferOwnership",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "newOwner"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "transferTokens",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_token"
+            },
+            {
+                "type": "address",
+                "name": "_destination"
+            },
+            {
+                "type": "uint256",
+                "name": "_amount"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateDelay",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "_delay"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateUseAdapterAllowlist",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_useAdapterAllowlist"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "updateUseAssetAllowlist",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_useAssetAllowlist"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "useAdapterAllowlist",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "useAssetAllowlist",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "bool"
+            }
+        ]
+    }
+]

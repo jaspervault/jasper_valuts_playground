@@ -1,0 +1,20 @@
+{
+    "network": "goerli",
+    "chainId": 5,
+    "json_rpc": "https://goerli.infura.io/v3/0d5c5d0c431f4a1c966c1c9a0557ad9a",
+    "uniswap_router_addr": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+    "uniswap_factory_addr": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+    "priceFeed_bnb_usd": "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526",
+    "ausdc_addr": "0x935c0F6019b05C787573B5e6176681282A3f3E05",
+    "awbtc_addr": "0x2f8274ce7fB939014e657e480e9ed3e1131f242B",
+    "aweth_addr": "0x030bA81f1c18d280636F32af80b9AAd02Cf0854e",
+    "lido_addr": "0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F",
+    "usdc_addr": "0x9FD21bE27A2B059a288229361E2fA632D8D2d074",
+    "wbtc_addr": "0xf4423F4152966eBb106261740da907662A3569C5",
+    "weth_addr": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+    "link_addr": "0xFc1Ab0379db4B6ad8Bf5Bc1382e108a341E2EaBb",
+    "snx_addr": "0x7337e7FF9abc45c0e43f130C136a072F4794d40b",
+    "entryPoint": "0x0576a174D229E3cFA37253523E645A78A0C91B57",
+    "vaultFactory": "0x8f52256eAEEAF0372Ec09A9b697da205CB3BdB71",
+    "bundlerUrl": "https://node.stackup.sh/v1/rpc/d57a110ad60a910882b5cb089c83f590dfd281968f3e6a06d3ddab38c027515f"
+}

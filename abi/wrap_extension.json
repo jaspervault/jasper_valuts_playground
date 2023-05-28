@@ -1,0 +1,585 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "contract IManagerCore",
+                "name": "_managerCore",
+                "type": "address"
+            },
+            {
+                "internalType": "contract IWrapModuleV2",
+                "name": "_wrapModule",
+                "type": "address"
+            },
+            {
+                "internalType": "contract ISignalSuscriptionModule",
+                "name": "_signalSuscriptionModule",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "ExtensionRemoved",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_manage",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_wrapModule",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_reason",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "_callData",
+                "type": "bytes"
+            }
+        ],
+        "name": "InvokeFail",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "WrapExtensionInitialized",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_module",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "_integrationName",
+                "type": "string"
+            }
+        ],
+        "name": "ValidAdapterByModule",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "initializeExtension",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "initializeModule",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "_delegatedManager",
+                "type": "address"
+            }
+        ],
+        "name": "initializeModuleAndExtension",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "managerCore",
+        "outputs": [
+            {
+                "internalType": "contract IManagerCore",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "removeExtension",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "setManagers",
+        "outputs": [
+            {
+                "internalType": "contract IDelegatedManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "signalSuscriptionModule",
+        "outputs": [
+            {
+                "internalType": "contract ISignalSuscriptionModule",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "wrappedUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "unwrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.UnwrapInfo",
+                "name": "_unwrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "unwrap",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "wrappedUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "unwrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.UnwrapInfo",
+                "name": "_unwrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "unwrapWithEther",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "wrappedUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "unwrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.UnwrapInfo",
+                "name": "_unwrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "unwrapWithEtherWithFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "wrappedUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "unwrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.UnwrapInfo",
+                "name": "_unwrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "unwrapWithFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "underlyingUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "wrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.WrapInfo",
+                "name": "_wrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "wrap",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "underlyingUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "wrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.WrapInfo",
+                "name": "_wrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "wrapEtherWithFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "wrapModule",
+        "outputs": [
+            {
+                "internalType": "contract IWrapModuleV2",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "underlyingUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "wrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.WrapInfo",
+                "name": "_wrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "wrapWithEther",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IJasperVault",
+                "name": "_jasperVault",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "underlyingToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "wrappedToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "int256",
+                        "name": "underlyingUnits",
+                        "type": "int256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "integrationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "wrapData",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct WrapExtension.WrapInfo",
+                "name": "_wrapInfo",
+                "type": "tuple"
+            }
+        ],
+        "name": "wrapWithFollowers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
