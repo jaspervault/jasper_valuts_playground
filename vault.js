@@ -49,8 +49,8 @@ async function createV2(context, newfund_config, components, isLeverage = false)
         init_holdings.push(component.token_addr)
         init_holdings_units.push(component.unit)
     }
-
-    const address = await settings.aa_options.accountAPI.getCounterFactualAddress();
+    settings.aa_options = undefined;
+    let address = settings.aa_options ? await settings.aa_options.accountAPI.getCounterFactualAddress() : await context.deployer.getAddress();
     const newToken = {
         vaultType: newfund_config.vaultType,
         followFee: ethers.utils.parseEther("0.02"),
@@ -66,7 +66,7 @@ async function createV2(context, newfund_config, components, isLeverage = false)
         adapters: [contractData.UniswapV2ExchangeAdapter, contractData.AaveV2WrapV2Adapter],
         operators: [address],
         assets: init_holdings.concat([settings.ausdc_addr, settings.awbtc_addr, settings.aweth_addr]),
-        extensions: [contractData.IssuanceExtension, contractData.NAVIssuanceExtension, contractData.StreamingFeeSplitExtension, contractData.SignalSuscriptionExtension, contractData.CopyTradingExtension, contractData.UtilsExtension]
+        extensions: [contractData.VaultPaymaster, contractData.IssuanceExtension, contractData.NAVIssuanceExtension, contractData.StreamingFeeSplitExtension, contractData.SignalSuscriptionExtension, contractData.CopyTradingExtension, contractData.UtilsExtension]
     }
     if (isLeverage) {
         newToken.modules.push(contractData.WrapModuleV2, contractData.AaveLeverageModule)
@@ -168,7 +168,7 @@ async function createV2(context, newfund_config, components, isLeverage = false)
         initialize_extensions.push(contractData.LeverageExtension);
         initialize_bytecode.push(leverageExtensionThreeBytecode);
     }
-    let rt = await context.sendTransaction(settings.aa_options, DelegatedManagerFactory, "initialize",
+    let rt = await sendTransaction(settings.aa_options, DelegatedManagerFactory, "initialize",
         setTokenAddress,
         initialize_extensions,
         initialize_bytecode
@@ -192,10 +192,9 @@ function getContract(context, name, address) {
 }
 
 async function getSetAddressFromCreateHash(context, transactionHash) {
-    let DelegatedManagerFactory = new ethers.Contract(contractData.DelegatedManagerFactory, context.wallet_helper.get_contract_config(context).contractData.DelegatedManagerFactory.abi, context.ethers_provider).connect(context.deployer);
-    let Controller = new ethers.Contract(contractData.Controller, context.wallet_helper.get_contract_config(context).contractData.Controller.abi, context.ethers_provider).connect(context.deployer);
+    let Controller = getContract(context, "Controller");
 
-    const receipt = await context.ethers_provider.getTransactionReceipt(transactionHash);
+    const receipt = await Controller.provider.getTransactionReceipt(transactionHash);
 
     const events = await Controller.queryFilter(Controller.filters.SetAdded(), receipt.blockHash);
 
@@ -204,6 +203,9 @@ async function getSetAddressFromCreateHash(context, transactionHash) {
     }
 }
 async function sendTransaction(options, contract, method_name, ...args) {
+    if (!options) {
+        return await sendContractTransaction(contract, method_name, ...args);
+    }
     let rpcUrl = settings.bundlerUrl;
     const simpleAccount = await Presets.Builder.SimpleAccount.init(
         options.accountAPI.owner,
@@ -229,6 +231,20 @@ async function sendTransaction(options, contract, method_name, ...args) {
     console.log(`Transaction hash: ${ev?.transactionHash ?? null}`);
     return await contract.provider.getTransaction(ev?.transactionHash ?? null);
 }
+
+async function sendContractTransaction(contract, method_name, ...args) {
+    // console.log(args);
+    let estimateGas = await contract.estimateGas[method_name](...args)
+    let gasLimit = estimateGas.mul(110).div(100)
+    let gasPrice = (await contract.provider.getFeeData()).gasPrice;
+    let result = await contract[method_name](...args, {
+        gasLimit: gasLimit,
+        gasPrice: gasPrice
+    })
+    console.log("<transaction hash>", result.hash)
+    return result;
+}
+
 
 export default {
     createV2: createV2,
