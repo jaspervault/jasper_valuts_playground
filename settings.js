@@ -4,8 +4,6 @@ import { ethers } from "ethers";
 import { SimpleAccountAPI } from "@account-abstraction/sdk";
 import Set from "set.js";
 import { default as dotenv } from "dotenv"
-
-
 var contractData = {}
 var network = {}
 var settings = {}
@@ -38,8 +36,7 @@ async function ask_start_args() {
     let net = await inquirer.prompt(questions)
     process.env.NET_WORK_NAME = net.opt[0]
     network = net.opt[0]
-    const owner_pk = process.env[`${net.opt[0].toUpperCase()}_DEPLOY_PRIVATE_KEY`] || ""
-    console.log("owner_pk", owner_pk);
+
     contractData = JSON.parse(
         await readFile(
             new URL(`./contractData.${network}.json`, import.meta.url)

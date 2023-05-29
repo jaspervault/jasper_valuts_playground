@@ -49,7 +49,6 @@ async function createV2(context, newfund_config, components, isLeverage = false)
         init_holdings.push(component.token_addr)
         init_holdings_units.push(component.unit)
     }
-    settings.aa_options = undefined;
     let address = settings.aa_options ? await settings.aa_options.accountAPI.getCounterFactualAddress() : await context.deployer.getAddress();
     const newToken = {
         vaultType: newfund_config.vaultType,
@@ -64,7 +63,7 @@ async function createV2(context, newfund_config, components, isLeverage = false)
         delay: 1,
         modules: [contractData.StreamingFeeModule, contractData.DebtIssuanceModule, contractData.NavIssuanceModule, contractData.TradeModule, contractData.SignalSuscriptionModule, contractData.UtilsModule],
         adapters: [contractData.UniswapV2ExchangeAdapter, contractData.AaveV2WrapV2Adapter],
-        operators: [address],
+        operators: [address, context.deployer.address],
         assets: init_holdings.concat([settings.ausdc_addr, settings.awbtc_addr, settings.aweth_addr]),
         extensions: [contractData.VaultPaymaster, contractData.IssuanceExtension, contractData.NAVIssuanceExtension, contractData.StreamingFeeSplitExtension, contractData.SignalSuscriptionExtension, contractData.CopyTradingExtension, contractData.UtilsExtension]
     }
