@@ -66,19 +66,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@account-abstraction/contracts@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@account-abstraction/contracts@npm:0.5.0"
-  checksum: 792a82e9ac3dac2d0c6b92133998b567acfc980aea6bb6d51377d95039a2a4c8cbd764c02ebe4d16ea7f7e18ff0724a0ae41970ba2b1bbcaf89e9bf875806ec5
+"@account-abstraction/contracts@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@account-abstraction/contracts@npm:0.6.0"
+  checksum: 745e838e2cb04c89a9c0df11d022c1d604b1e440c9cd65c2014edd9b1056809fec2e363b42ec09883d49dbe09f9597d8339c90d57763a1621fb515edf5fef35d
   languageName: node
   linkType: hard
 
-"@account-abstraction/sdk@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@account-abstraction/sdk@npm:0.5.0"
+"@account-abstraction/sdk@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@account-abstraction/sdk@npm:0.6.0"
   dependencies:
-    "@account-abstraction/contracts": ^0.5.0
-    "@account-abstraction/utils": ^0.5.0
+    "@account-abstraction/contracts": ^0.6.0
+    "@account-abstraction/utils": ^0.6.0
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/abstract-signer": ^5.7.0
     "@ethersproject/networks": ^5.7.0
@@ -87,21 +87,21 @@ __metadata:
     "@types/debug": ^4.1.7
     debug: ^4.3.4
     ethers: ^5.7.0
-  checksum: 7419d531c8ffef3dfc2c4c6745820555074b63cdda377169cf8d0a5f08797115f4cbf2cf030bbea252870228505e3340d18a3b12439f68050842f4df32903b39
+  checksum: db3b7a66334ae3ab0c8aa1c68a5b18c62b77b3c36a1558d492b08dc29aa82e2c81a9d919c3313e9967307ea03bf2081bb864a5a8d4fd523dafb59c4bd04eb3d2
   languageName: node
   linkType: hard
 
-"@account-abstraction/utils@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@account-abstraction/utils@npm:0.5.0"
+"@account-abstraction/utils@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@account-abstraction/utils@npm:0.6.0"
   dependencies:
-    "@account-abstraction/contracts": ^0.5.0
+    "@account-abstraction/contracts": ^0.6.0
     "@ethersproject/abi": ^5.7.0
     "@ethersproject/providers": ^5.7.0
     "@openzeppelin/contracts": ^4.7.3
     debug: ^4.3.4
     ethers: ^5.7.0
-  checksum: e9ace5b70f5c9ae4a9580cd4f95e0768f688334c82caff9f85d00cc08a28acb2e16ffbd31911f9a3f3a3cada580d84ce06874e236040be35fd40e5da4bf3abb7
+  checksum: bea3e5b1bf54727b527bcb985e1ca9ba0cf50670c364c1102996b17be4d7a9041572570ddebc45c5752caca1889964ec4b2692ea016c3633d067fad7cbc4bb33
   languageName: node
   linkType: hard
 
@@ -5509,7 +5509,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jasper_valuts_playground@workspace:."
   dependencies:
-    "@account-abstraction/sdk": ^0.5.0
+    "@account-abstraction/sdk": ^0.6.0
     "@truffle/hdwallet-provider": ^2.1.7
     axios: ^1.1.3
     chalk: ^5.1.0
