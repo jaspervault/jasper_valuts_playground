@@ -4,9 +4,10 @@ import { default as figlet } from 'figlet'
 import { ethers } from 'ethers';
 import { readFile } from 'fs/promises';
 import { default as dotenv } from "dotenv"
-import { ask_start_args } from "./settings.js"
-import valut_helper from './vault.js';
-import { default as contractConfig } from './config.js';
+import { ask_start_args } from "../config/settings.js"
+import Vault from '../lib/vault.js';
+import Execution from '../lib/execution.js';
+import { default as contractConfig } from '../config/config.js';
 
 let args = await ask_start_args();
 dotenv.config();
@@ -15,7 +16,7 @@ let settings = args.settings
 var contractData = args.contractData
 var accounts = JSON.parse(
     await readFile(
-        new URL('./accounts.json', import.meta.url)
+        new URL('../config/accounts.json', import.meta.url)
     )
 )
 let accountData = []
@@ -39,6 +40,9 @@ let ctx = {
     contractConfig: contractConfig
 }
 
+let valut_helper = new Vault(ctx);
+let execution_helper = new Execution(ctx);
+ctx.execution_helper = execution_helper;
 
 async function main() {
     let r = {}
@@ -73,10 +77,10 @@ async function create(new_fund_settings) {
         unit: 0
     })
     for (const component of components) {
-        let erc20_contract = valut_helper.getContract(ctx, "ERC20", component.token_addr);
+        let erc20_contract = valut_helper.getContract("ERC20", component.token_addr);
         component.unit = valut_helper.getHolding(component.allocation, component.price, await erc20_contract.decimals())
     }
-    return await valut_helper.createV2(ctx, new_fund_settings, components, true);
+    return await valut_helper.createV2(new_fund_settings, components, true);
 }
 
 main()

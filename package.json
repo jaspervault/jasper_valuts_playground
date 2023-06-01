@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node test.js"
+    "start": "node src/test.js"
   },
   "dependencies": {
     "@account-abstraction/sdk": "^0.5.0",
@@ -24,6 +24,7 @@
     "qs": "^6.11.0",
     "random-js": "^2.1.0",
     "set.js": "^0.6.0",
+    "sleep-promise": "^9.1.0",
     "userop": "^0.2.0"
   },
   "type": "module",

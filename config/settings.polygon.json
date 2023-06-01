@@ -10,5 +10,8 @@
     "awbtc_addr": "0x5c2ed810328349100A66B82b78a1791B101C9D61",
     "aweth_addr": "0x28424507fefb6f7f8E9D3860F56504E4e5f5f390",
     "entryPoint": "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789",
-    "bundlerUrl": "https://node.stackup.sh/v1/rpc/578a0531374dbe764e10353db62502a77245a09f7d5c5277432017fdd58c10cf"
+    "use_paymaster": true,
+    "bundlerUrl": "https://polygon.jaspervault.io",
+    "myBundlerUrl": "https://ethgo-polygon.fly.dev",
+    "accountIndex": 0
 }

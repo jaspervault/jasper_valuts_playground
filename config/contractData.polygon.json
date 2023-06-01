@@ -21,7 +21,7 @@
     "DelegatedManagerFactory": "0xc670C7E04D5985438201809513282C72c5f68cD5",
     "IssuanceExtension": "0x9AFECFB080E67cAEB576d0b9e2134e7bE6eaeB06",
     "StreamingFeeSplitExtension": "0x9BfDe62eA5e018f5D2917cA550e77Ad9FF39469E",
-    "SignalSuscriptionExtension": "0x9b6d6E89DD3F9F5DA86A6b71d4dAE5810913FB1B",
+    "SignalSuscriptionExtension": "0x6Cbc70aA44e7B5437244FF74fE7f1F2bedF412a9",
     "WrapExtension": "0x1c4A52325cC49bB6630D770666Bb3e3129fD5B17",
     "LeverageExtension": "0x676C112f700085BF8bf8D3b844343ef0e35Ea27D",
     "CopyTradingExtension": "0xb5aD8BAcD421D236463428Cf515fC22ab7F23b33",
@@ -34,5 +34,5 @@
     "StakingExtension": "0xFF0B012AeA02840EBc30d47459108b5a08F5ea86",
     "SubscribeFeePool": "0x5F54D16Ecabcb0709F63D250e3d6bDb162275D77",
     "UtilsModule": "0xBBEF52DeB6C40a73f251C96862fBeEC15e5C7981",
-    "UtilsExtension": "0xc77c8F2fd94f070A270771D652f7c5fDD465fA91"
+    "UtilsExtension": "0xDf8c6348487Dbd2587CF0c41f4C152014E5b4304"
 }

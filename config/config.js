@@ -327,5 +327,14 @@ export default {
             )
         ),
         name: 'UtilsExtension',
+    },
+    EntryPoint: {
+        address: '',
+        abi: JSON.parse(
+            await readFile(
+                new URL('./abi/entryPoint.json', import.meta.url)
+            )
+        ),
+        name: 'entryPoint',
     }
 }

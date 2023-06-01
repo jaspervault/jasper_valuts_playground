@@ -39,17 +39,17 @@ async function ask_start_args() {
 
     contractData = JSON.parse(
         await readFile(
-            new URL(`./contractData.${network}.json`, import.meta.url)
+            new URL(`../config/contractData.${network}.json`, import.meta.url)
         )
     )
     settings = JSON.parse(
         await readFile(
-            new URL(`./settings.${network}.json`, import.meta.url)
+            new URL(`../config/settings.${network}.json`, import.meta.url)
         )
     )
     var accounts = JSON.parse(
         await readFile(
-            new URL('./accounts.json', import.meta.url)
+            new URL('../config/accounts.json', import.meta.url)
         )
     )
     let provider = new ethers.providers.JsonRpcProvider(settings.json_rpc)
