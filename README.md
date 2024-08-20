@@ -1,4 +1,4 @@
-# Sample Usage Instructions
+# Playground Instructions
 
 ## Installation
 
@@ -11,13 +11,13 @@ yarn
 ## Config
 
 ```
-cp ./config/accounts.json.example ./config/accounts.json
+cp .env.example .env
 ```
 
 ## Running
 
-Start the sample with the following command:
+Start the demo with the following command:
 
 ```
-yarn start
+yarn play
 ```
