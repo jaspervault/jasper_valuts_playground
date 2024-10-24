@@ -1,4 +1,4 @@
-const { config } = require('dotenv');
+import { config } from 'dotenv';
 config();
 
 class ParticalConfig {
@@ -19,4 +19,4 @@ const particalConfig = new ParticalConfig({
     entryPoint: process.env.ENTRYPOINT_06 || ''
 });
 
-module.exports = { particalConfig };
+export { particalConfig };

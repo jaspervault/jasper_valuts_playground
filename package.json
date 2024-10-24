@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@account-abstraction/sdk": "^0.6.0",
-    "@jaspervault/jvault.js": "^0.0.6",
+    "@jaspervault/jvault.js": "^0.0.8",
     "@truffle/hdwallet-provider": "^2.1.7",
     "axios": "^1.1.3",
     "chalk": "^5.1.0",

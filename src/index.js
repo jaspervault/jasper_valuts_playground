@@ -1,20 +1,20 @@
 import { JVault, ADDRESSES, OptionType } from "@jaspervault/jvault.js";
 import { ethers } from 'ethers';
-import config from "@jaspervault/jvault.js/dist/src/api/config/arbitrum.json" assert { type: "json" };
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 async function main() {
-    let network_config = JVault.readNetworkConfig("arbitrum");
+    let network_config = JVault.readNetworkConfig("base");
+
+    let ethersProvider = new ethers.providers.JsonRpcProvider(network_config.rpcUrl);
+    let ethersSigner = new ethers.Wallet(process.env.PRIVATE_KEY_HOLDER, new ethers.providers.JsonRpcProvider(network_config.rpcUrl));
 
     let config_holder = {
-        ethersProvider: new ethers.providers.JsonRpcProvider(network_config.rpcUrl),
-        ethersSigner: new ethers.Wallet(process.env.PRIVATE_KEY_HOLDER,
-            new ethers.providers.JsonRpcProvider(network_config.rpcUrl)),
+        ethersProvider: ethersProvider,
+        ethersSigner: ethersSigner,
         network: network_config.name,
-        EOA: new ethers.Wallet(process.env.PRIVATE_KEY_HOLDER,
-            new ethers.providers.JsonRpcProvider(network_config.rpcUrl)).address
+        EOA: ethersSigner.address
     };
     let feeData = await config_holder.ethersProvider.getFeeData();
     let jVault_holder = new JVault(config_holder);
@@ -27,22 +27,22 @@ async function main() {
     try {
         let writer_config = await jVault_holder.OptionTradingAPI.getOptionWriterSettings();
         let tx = await jVault_holder.OptionTradingAPI.createOrder({
-            amount: ethers.utils.parseEther('0.01'),
-            underlyingAsset: ADDRESSES.arbitrum.ARB,
+            amount: ethers.utils.parseEther('0.001'),
+            underlyingAsset: ADDRESSES.base.CBBTC,
             optionType: OptionType.CALL,
-            premiumAsset: ADDRESSES.arbitrum.USDT,
+            premiumAsset: ADDRESSES.base.USDC,
             optionVault: optionVault,
-            optionWriter: writer_config.arbitrum.CALL.ARB,
+            optionWriter: writer_config.base.CALL.CBBTC,
             premiumVault: vaults_1,
-            chainId: config.chainId,
+            chainId: network_config.chainId,
             secondsToExpiry: 3600 * 2
         }, {
             maxFeePerGas: feeData.lastBaseFeePerGas?.add(ethers.utils.parseUnits('0.001', 'gwei')),
             maxPriorityFeePerGas: ethers.utils.parseUnits('0.001', 'gwei')
         });
         if (tx) {
-            console.log(`order TX: ${tx.hash}`);
-            let order = await jVault_holder.OptionTradingAPI.getOrderByHash(tx.hash);
+            console.log(`order TX: ${tx}`);
+            let order = await jVault_holder.OptionTradingAPI.getOrderByHash(tx);
             console.log(order);
         }
     }
