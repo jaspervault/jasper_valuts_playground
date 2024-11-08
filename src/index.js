@@ -26,7 +26,7 @@ async function main() {
     console.log(`vaults_1: ${vaults_1}`);
     try {
         let writer_config = await jVault_holder.OptionTradingAPI.getOptionWriterSettings();
-        let tx = await jVault_holder.OptionTradingAPI.createOrder({
+        let tx = await jVault_holder.OptionTradingAPI.createDegenOrder({
             amount: ethers.utils.parseEther('0.001'),
             underlyingAsset: ADDRESSES.base.CBBTC,
             optionType: OptionType.CALL,

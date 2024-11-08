@@ -1245,9 +1245,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jaspervault/jvault.js@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "@jaspervault/jvault.js@npm:0.0.8"
+"@jaspervault/jvault.js@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "@jaspervault/jvault.js@npm:0.1.4"
   dependencies:
     "@0x/utils": "npm:^6.5.3"
     "@0xproject/types": "npm:^1.1.4"
@@ -1274,7 +1274,7 @@ __metadata:
     ts-node: "npm:^10.9.2"
     tspath: "npm:^1.3.7"
     web3: "npm:^1.5.2"
-  checksum: 10/99b14f057b5ceafb068c4870aa85b6bce1dc9fc5c9d8e0e46935fbc97e0ceac2f2de5f978a9e193fc5bccd70edceb19eb98c5d05db8bcce67c0915fd295ec8c1
+  checksum: 10/13dac45823b494230674d4f1016fed52d47937c7cf6682afe7c3fd5270a6c27b8041b13667c8a157846b2526b7e3688068523415d2a76b67764b224240dec162
   languageName: node
   linkType: hard
 
@@ -10639,7 +10639,7 @@ __metadata:
   resolution: "jasper_valuts_playground@workspace:."
   dependencies:
     "@account-abstraction/sdk": "npm:^0.6.0"
-    "@jaspervault/jvault.js": "npm:^0.0.8"
+    "@jaspervault/jvault.js": "npm:^0.1.4"
     "@truffle/hdwallet-provider": "npm:^2.1.7"
     axios: "npm:^1.1.3"
     chalk: "npm:^5.1.0"
